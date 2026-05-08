@@ -3,7 +3,7 @@ import { DeleteIcon } from './Icon.jsx';
 
 const Leads = () => {
 
-    let [dataLeads , isDataLeads] = useState([""])
+    let [dataLeads , isDataLeads] = useState([])
 
     // let dataLeads = [
     //     {
@@ -163,10 +163,25 @@ const Leads = () => {
     const isPhoneInEmail = dataLeads?.email?.includes(dataLeads?.phone) || false;
 
     useEffect(()=>{
-        chrome.storage.local([leads],(res)=>{
-           dataLeads =  res.leads || []
-        })
-        console.log()
+      const handleMessage = (event) => {
+        // Sirf hamare extension wale message ko pakdo
+        if (event.data.type === "FROM_EXTENSION_STORAGE") {
+            console.log("Real-time data received!", event.data.leads);
+            isDataLeads(event.data.leads); // Yeh state update karega aur UI refresh hogi
+        }
+
+        // Agar React ne data manga hai toh content.js bhej dega
+        if (event.data.type === "REQUEST_DATA_FROM_CONTENT") {
+             // Yeh toh pehle se likha hoga
+        }
+    };
+
+    window.addEventListener("message", handleMessage);
+
+    // Page load par pehla data mangwane ke liye
+    window.postMessage({ type: "REQUEST_DATA_FROM_CONTENT" }, "*");
+
+    return () => window.removeEventListener("message", handleMessage);
     },[])
 
   return (
@@ -186,8 +201,8 @@ const Leads = () => {
         </thead>
     <tbody className='w-full'>
         {
-           dataLeads?.length  < 1 ? <><h1>No data</h1></>
-            :
+           dataLeads?.length > 0 &&
+            
             dataLeads?.map((lead, i)=>{
               
                 const isPhoneInEmail = lead?.email && lead?.phone 
@@ -198,8 +213,8 @@ const Leads = () => {
                     <td className='text-center w-[3%] truncate overflow-hidden whitespace-nowrap'>{i+1}.</td>
                     <td className='text-center w-[10%] truncate overflow-hidden whitespace-nowrap'><a target='_blank' href={`https://tsdr.uspto.gov/#caseNumber=${lead.serial}&caseSearchType=CASE_SEARCH_NUMBER&caseType=DEFAULT&searchType=statusSearch`}>{lead.serial}</a></td>
                     <td className='text-center w-[25%] truncate overflow-hidden whitespace-nowrap'>{lead?.mark}</td>
-                    <td className='text-center w-[10%] truncate overflow-hidden whitespace-nowrap'>{lead?.date}</td>
-                    <td className='text-center w-[20%] truncate overflow-hidden whitespace-nowrap'>{lead?.name}</td>
+                    <td className='text-center w-[10%] truncate overflow-hidden whitespace-nowrap'>{lead?.registrationDate}</td>
+                    <td className='text-center w-[20%] truncate overflow-hidden whitespace-nowrap'>{lead?.correspondent}</td>
                     <td className='text-center w-[10%] truncate overflow-hidden whitespace-nowrap'>{lead?.phone}</td>
                     <td className='text-center w-[15%] truncate overflow-hidden whitespace-nowrap'>{lead?.email}</td>
                 <td className=' w-[3%] h-[35px]'><span className='w-full hidden group-hover:flex transition-all ease-in-out duration-500'><button className='w-[35px] h-[35px] rounded-full bg-[#e9eef6] flex items-center justify-center hover:bg-[#ff6467] cursor-pointer transition-all ease-initial duration-300'><DeleteIcon className='hover:text-white'/></button></span></td>
