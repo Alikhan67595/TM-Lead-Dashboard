@@ -5,160 +5,17 @@ const Leads = () => {
 
     let [dataLeads , isDataLeads] = useState([])
 
-    // let dataLeads = [
-    //     {
-    //         "mark" : "YOGA SUPPORTfsgserrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
-    //         "serial" : "87338833",
-    //         "date" : "Aug. 22, 2017",
-    //         "name" : "Russell, Hana Ray",
-    //         "phone": "9162764083",
-    //         "email": "info@yogasupport.org"
-    //     },
-    //     {
-    //         "mark" : "YOGA SUPPORT",
-    //         "serial" : "87338833",
-    //         "date" : "Aug. 22, 2017",
-    //         "name" : "Russell, Hana Ray",
-    //         "phone": "9162764083",
-    //         "email": "info@yogasupport.org"
-    //     },
-    //     {
-    //         "mark" : "YOGA SUPPORT",
-    //         "serial" : "87338833",
-    //         "date" : "Aug. 22, 2017",
-    //         "name" : "Russell, Hana Ray",
-    //         "phone": "9162764083",
-    //         "email": "info@yogasupport.org"
-    //     },
-    //     {
-    //         "mark" : "YOGA SUPPORT",
-    //         "serial" : "87338833",
-    //         "date" : "Aug. 22, 2017",
-    //         "name" : "Russell, Hana Ray",
-    //         "phone": "9162764083",
-    //         "email": "info@yogasupport.org"
-    //     },
-    //     {
-    //         "mark" : "YOGA SUPPORT",
-    //         "serial" : "87338833",
-    //         "date" : "Aug. 22, 2017",
-    //         "name" : "Russell, Hana Ray",
-    //         "phone": "9162764083",
-    //         "email": "info@yogasupport.org"
-    //     },
-    //     {
-    //         "mark" : "YOGA SUPPORT",
-    //         "serial" : "87338833",
-    //         "date" : "Aug. 22, 2017",
-    //         "name" : "Russell, Hana Ray",
-    //         "phone": "9162764083",
-    //         "email": "info@yogasupport.org"
-    //     },
-    //     {
-    //         "mark" : "YOGA SUPPORT",
-    //         "serial" : "87338833",
-    //         "date" : "Aug. 22, 2017",
-    //         "name" : "Russell, Hana Ray",
-    //         "phone": "9162764083",
-    //         "email": "info@yogasupport.org"
-    //     },
-    //     {
-    //         "mark" : "YOGA SUPPORT",
-    //         "serial" : "87338833",
-    //         "date" : "Aug. 22, 2017",
-    //         "name" : "Russell, Hana Ray",
-    //         "phone": "9162764083",
-    //         "email": "info@yogasupport.org"
-    //     },
-    //     {
-    //         "mark" : "YOGA SUPPORT",
-    //         "serial" : "87338833",
-    //         "date" : "Aug. 22, 2017",
-    //         "name" : "Russell, Hana Ray",
-    //         "phone": "9162764083",
-    //         "email": "info@yogasupport.org"
-    //     },
-    //     {
-    //         "mark" : "YOGA SUPPORT",
-    //         "serial" : "87338833",
-    //         "date" : "Aug. 22, 2017",
-    //         "name" : "Russell, Hana Ray",
-    //         "phone": "9162764083",
-    //         "email": "info@yogasupport.org"
-    //     },
-    //     {
-    //         "mark" : "YOGA SUPPORT",
-    //         "serial" : "87338833",
-    //         "date" : "Aug. 22, 2017",
-    //         "name" : "Russell, Hana Ray",
-    //         "phone": "9162764083",
-    //         "email": "info@yogasupport.org"
-    //     },
-    //     {
-    //         "mark" : "YOGA SUPPORT",
-    //         "serial" : "87338833",
-    //         "date" : "Aug. 22, 2017",
-    //         "name" : "Russell, Hana Ray",
-    //         "phone": "9162764083",
-    //         "email": "info@yogasupport.org"
-    //     },
-    //     {
-    //         "mark" : "YOGA SUPPORT",
-    //         "serial" : "87338833",
-    //         "date" : "Aug. 22, 2017",
-    //         "name" : "Russell, Hana Ray",
-    //         "phone": "9162764083",
-    //         "email": "info@yogasupport.org"
-    //     },
-    //     {
-    //         "mark" : "YOGA SUPPORT",
-    //         "serial" : "87338833",
-    //         "date" : "Aug. 22, 2017",
-    //         "name" : "Russell, Hana Ray",
-    //         "phone": "9162764083",
-    //         "email": "info@yogasupport.org"
-    //     },
-    //     {
-    //         "mark" : "YOGA SUPPORT",
-    //         "serial" : "87338833",
-    //         "date" : "Aug. 22, 2017",
-    //         "name" : "Russell, Hana Ray",
-    //         "phone": "9162764083",
-    //         "email": "info@yogasupport.org"
-    //     },
-    //     {
-    //         "mark" : "YOGA SUPPORT",
-    //         "serial" : "87338833",
-    //         "date" : "Aug. 22, 2017",
-    //         "name" : "Russell, Hana Ray",
-    //         "phone": "9162764083",
-    //         "email": "info@yogasupport.org"
-    //     },
-    //     {
-    //         "mark" : "YOGA SUPPORT",
-    //         "serial" : "87338833",
-    //         "date" : "Aug. 22, 2017",
-    //         "name" : "Russell, Hana Ray",
-    //         "phone": "9162764083",
-    //         "email": "info@yogasupport.org"
-    //     },
-    //     {
-    //         "mark" : "YOGA SUPPORT",
-    //         "serial" : "87338833",
-    //         "date" : "Aug. 22, 2017",
-    //         "name" : "Russell, Hana Ray",
-    //         "phone": "9162764083",
-    //         "email": "9162764083info@yogasupport.org"
-    //     },
-    //     {
-    //         "mark" : "YOGA SUPPORT",
-    //         "serial" : "87338833",
-    //         "date" : "Aug. 22, 2017",
-    //         "name" : "Russell, Hana Ray",
-    //         "phone": "9162764083",
-    //         "email": "info@yogasupport.org"
-    //     },
-    // ]
+
+    // --- YE FUNCTION ADD KAREIN ---
+    const deleteLead = (serial) => {
+        if (window.confirm("Are you sure you want to delete this lead?")) {
+            // Extension ko delete ka message bhejo
+            window.postMessage({ type: "DELETE_LEAD_REQUEST", serial: serial }, "*");
+            
+            // UI se foran hata do (Optimistic Update)
+            isDataLeads(prev => prev.filter(lead => lead.serial !== serial));
+        }
+    };
 
     const isPhoneInEmail = dataLeads?.email?.includes(dataLeads?.phone) || false;
 
@@ -217,7 +74,7 @@ const Leads = () => {
                     <td className='text-center w-[20%] truncate overflow-hidden whitespace-nowrap'>{lead?.correspondent}</td>
                     <td className='text-center w-[10%] truncate overflow-hidden whitespace-nowrap'>{lead?.phone}</td>
                     <td className='text-center w-[15%] truncate overflow-hidden whitespace-nowrap'>{lead?.email}</td>
-                <td className=' w-[3%] h-[35px]'><span className='w-full hidden group-hover:flex transition-all ease-in-out duration-500'><button className='w-[35px] h-[35px] rounded-full bg-[#e9eef6] flex items-center justify-center hover:bg-[#ff6467] cursor-pointer transition-all ease-initial duration-300'><DeleteIcon className='hover:text-white'/></button></span></td>
+                <td className=' w-[3%] h-[35px]'><span onClick={()=>deleteLead(lead.serial)} className='w-full hidden group-hover:flex transition-all ease-in-out duration-500'><button className='w-[35px] h-[35px] rounded-full bg-[#e9eef6] flex items-center justify-center hover:bg-[#ff6467] cursor-pointer transition-all ease-initial duration-300'><DeleteIcon className='hover:text-white'/></button></span></td>
                 </tr>)
         
 })
