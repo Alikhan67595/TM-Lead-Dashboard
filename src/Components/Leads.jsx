@@ -74,7 +74,7 @@ const Leads = () => {
     hover:z-10 
     transition-all duration-200 ease-in-out cursor-pointer`}>
                     <td className='text-center w-[3%] truncate overflow-hidden whitespace-nowrap'>{i+1}.</td>
-                    <td className='text-center w-[10%] truncate overflow-hidden whitespace-nowrap'><a target='_blank' href={`https://tsdr.uspto.gov/#caseNumber=${lead.serial}&caseSearchType=CASE_SEARCH_NUMBER&caseType=DEFAULT&searchType=statusSearch`}>{lead.serial}</a></td>
+                    <td className='text-center w-[10%] truncate overflow-hidden whitespace-nowrap'><a target='_blank' href={`https://tsdr.uspto.gov/#caseNumber=${lead.serial}&caseSearchType=CASE_SEARCH_NUMBER&caseType=DEFAULT&searchType=documentSearch`}>{lead.serial}</a></td>
                     <td className='text-center w-[25%] truncate overflow-hidden whitespace-nowrap'>{lead?.mark}</td>
                     <td className='text-center w-[10%] truncate overflow-hidden whitespace-nowrap'>{lead?.registrationDate}</td>
                     <td className='text-center w-[20%] truncate overflow-hidden whitespace-nowrap'>{lead?.correspondent}</td>
